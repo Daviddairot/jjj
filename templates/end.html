@@ -1,0 +1,159 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Thank you</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'iphone-13-14-4.css' %}">
+
+</head>
+<body>
+<div class="iphone-13-14-4-zmR">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You Page</title>
+    <!-- Add your stylesheets, scripts, or other meta tags here -->
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'image-18-WY3.png' %}" alt="Uploaded Image">
+    </header>
+        <div class="maind">
+            <div class = "cen">
+                <h2>President Candidates</h2>
+                <ul>
+                    {% for candidate in president_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Vice President Candidates -->
+            <div class = "cen">
+                <h2>Vice President Candidates</h2>
+                <ul>
+                    {% for candidate in vice_president_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- General Secretary Candidates -->
+            <div class = "cen">
+                <h2>General Secretary Candidates</h2>
+                <ul>
+                    {% for candidate in general_secretary_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Welfare Director Candidates -->
+            <div class = "cen">
+                <h2>Welfare Director Candidates</h2>
+                <ul>
+                    {% for candidate in welfare_director_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Financial Secretary Candidates -->
+            <div class = "cen">
+                <h2>Financial Secretary Candidates</h2>
+                <ul>
+                    {% for candidate in financial_secretary_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Social Director Candidates -->
+            <div class = "cen">
+                <h2>Social Director Candidates</h2>
+                <ul>
+                    {% for candidate in social_director_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Technical Director Candidates -->
+            <div class = "cen">
+                <h2>Technical Director Candidates</h2>
+                <ul>
+                    {% for candidate in technical_director_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Sports Director Candidates -->
+            <div class = "cen">
+                <h2>Sports Director Candidates</h2>
+                <ul>
+                    {% for candidate in sports_director_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Public Relations Officer Candidates -->
+            <div class = "cen">
+                <h2>Public Relations Officer Candidates</h2>
+                <ul>
+                    {% for candidate in public_relations_officer_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Treasurer Candidates -->
+            <div class = "cen">
+                <h2>Treasurer Candidates</h2>
+                <ul>
+                    {% for candidate in treasurer_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class = "cen">
+            <h2>Treasurer Candidates</h2>
+                <ul>
+                    {% for candidate in assistant_general_secretary_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class = "cen">
+                <h2>Assistant Social Director</h2>
+                <ul>
+                    {% for candidate in assistant_social_director_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class = "cen">
+                <h2>PRO 1</h2>
+                <ul>
+                    {% for candidate in pro1_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div >
+            <div class = "cen">
+                <h2>PRO 2</h2>
+                <ul>
+                    {% for candidate in pro2_candidates %}
+                        <li>{{ candidate.name }}: {{ candidate.votes }} votes</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="end"><p>&copy;Developed by Dairo D & Abas(DORBES)</p></div>
+    <!-- You can add more details or customize the layout as needed -->
+
+</body>
+</html>
+
+  
+</div>
+</body>

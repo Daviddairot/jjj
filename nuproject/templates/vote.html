@@ -1,0 +1,421 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>iPhone 13 & 14 - 3</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A600%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bodoni+MT%3A700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial%3A400%2C700"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'iphone-13-14-3.css' %}">
+</head>
+<body>
+<div class="iphone-13-14-3-Kbh">
+  <div class="auto-group-m6mh-cao">
+    <img class="image-18-8JF" src="{% static 'image-18-WY3.png' %}" alt="Uploaded Image">
+    <p class="nuesaelizade-chapter-elections-sFq">
+    NUESA(ELIZADE CHAPTER)
+    <br/>
+    ELECTIONS
+    </p>
+  </div>
+  <p class="please-select-your-preferred-candidate-9DM">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please select your preferred Candidate</p>
+  <form method="post" action="{% url 'vote_submit' %}">
+    <div>
+    {% csrf_token %}
+        <div class="auto-group-fwwk-33q">
+          <p class="president-kyq">President</p>
+          {%for president in presidents %}
+          <div class="auto-group-pynw-gnw">
+            <div class="ellipse-191-osZ">
+              <img class="ellipse-191-osZ" src="{{ president.picture.url }}" alt="{{ president.name }}">
+            </div>
+            <p class="favour-onofeghara-500lv-QsM">
+              <span class="favour-onofeghara-500lv-QsM-sub-0">
+              {{ president.name }}
+              <br/>
+              {{ president.department }}
+              <br/>
+              </span>
+              <span class="favour-onofeghara-500lv-QsM-sub-1">{{ president.level }}lv</span>
+            </p>
+            <input type="radio" name="president" value="{{ president.id }}" onclick="disableOtherRadios(this)">
+          </div>
+          {%endfor%}
+        </div>
+
+        <div class="auto-group-fwwk-33q">
+          <p class="president-kyq">Vice President</p>
+          {% for vice_president in vice_presidents %}
+          <div class="auto-group-pynw-gnw">
+            <div class="ellipse-191-osZ">
+              <img class="ellipse-191-osZ" src="{{ vice_president.picture.url }}" alt="{{ vice_president.name }}">
+            </div>
+            <p class="favour-onofeghara-500lv-QsM">
+              <span class="favour-onofeghara-500lv-QsM-sub-0">
+                {{ vice_president.name }} 
+                <br/>
+                {{ vice_president.department }}
+                <br/>
+              </span>
+              <span class="favour-onofeghara-500lv-QsM-sub-1">{{ vice_president.level }}lv</span>
+            </p>
+            <input type="radio" name="vice_president" value="{{ vice_president.id }}" onclick="disableOtherRadiosvice(this)">
+          </div>
+          {%endfor%}
+        </div>
+
+
+        <!--gen sec-->
+        <div class="auto-group-4tf1-cYj">
+          <p class="general-secretary-LDq">General Secretary</p>
+          {% for general_secretary in general_secretaries %}
+          <div class="auto-group-gneo-D4f">
+            <div class="ellipse-199-in7">
+              <img class="ellipse-199-in7" src="{{ general_secretary.picture.url }}" alt="{{ general_secretary.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-du5">
+              <span class="favour-onofheghara-500lv-du5-sub-0">
+              {{ general_secretary.name }}
+              <br/>
+              {{ general_secretary.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-du5-sub-1">{{ general_secretary.level }}lv</span>
+            </p>
+            <input type="radio" name="general_secretaries" value="{{ general_secretary.id }}" onclick="disableOtherRadiosgensec            (this)">
+          </div>
+          {%endfor%}
+        </div>
+        <!--wel dir-->
+        <div class="auto-group-l2sm-bPy">
+          <p class="welfare-director-7NK">Welfare Director</p>
+          {% for welfare_director in welfare_directors %}
+          <div class="auto-group-cjjk-Nb5">
+            <div class="ellipse-203-JDq">
+              <img class="ellipse-203-JDq" src="{{ welfare_director.picture.url }}" alt="{{ welfare_director.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-D5u">
+              <span class="favour-onofheghara-500lv-D5u-sub-0">
+              {{welfare_director.name}}
+              <br/>
+              {{welfare_director.department}}
+              </span>
+              <span class="favour-onofheghara-500lv-D5u-sub-1">{{welfare_director.level}}lv</span>
+            </p>
+            <input type="radio" name="welfare_director" value="{{ welfare_director.id }}" onclick="disableOtherRadioswelfare_director(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-dcr7-mBH">
+          <p class="financial-secretary-Gtj">Financial Secretary</p>
+        <!--fin sec-->
+          {% for financial_secretary in financial_secretaries %}
+          <div class="auto-group-59oh-s3H">
+            <div class="ellipse-207-z7u">
+              <img class="ellipse-207-z7u" src="{{ financial_secretary.picture.url }}" alt="{{ financial_secretary.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-J8b">
+              <span class="favour-onofheghara-500lv-J8b-sub-0">
+              {{ financial_secretary.name }}
+              <br/>
+              {{ financial_secretary.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-J8b-sub-1">{{ financial_secretary.level }}lv</span>
+            </p>
+            <input type="radio" name="financial_secretary" value="{{ financial_secretary.id }}" onclick="disableOtherRadiosfinancial_secretary(this)">
+          </div>
+          {%endfor%}
+        </div>
+    
+        <!--soc dir-->
+        <div class="auto-group-mzbd-G9H">
+          <p class="social-director-n7d">Social Director</p>
+          {% for social_director in social_directors %}
+          <div class="auto-group-ovd1-swh">
+            <div class="ellipse-211-bco">
+              <img class="ellipse-211-bco" src="{{ social_director.picture.url }}" alt="{{ social_director.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-hvj">
+              <span class="favour-onofheghara-500lv-hvj-sub-0">
+              {{ social_director.name }}
+              <br/>
+              {{ social_director.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-hvj-sub-1">{{ social_director.level }}
+                lv</span>
+            </p>
+            <input type="radio" name="social_director" value="{{ social_director.id }}" onclick="disableOtherRadiossocial_director(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-d7qu-gCK">
+          <p class="technical-director-b4P">Technical Director</p>
+          {% for technical_director in technical_directors %}
+          <div class="auto-group-qjou-TuD">
+            <div class="ellipse-215-ngb">
+              <img class="ellipse-215-ngb" src="{{ technical_director.picture.url }}" alt="{{ technical_director.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-J99">
+              <span class="favour-onofheghara-500lv-J99-sub-0">
+              {{ technical_director.name }}
+              <br/>
+              {{ technical_director.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-J99-sub-1">{{ technical_director.level }}lv</span>
+            </p>
+            <input type="radio" name="technical_director" value="{{ technical_director.id }}" onclick="disableOtherRadiostechnical_director(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-pmvb-Ftw">
+          <p class="sports-director-k51">Sports Director</p>
+          {% for sports_director in sports_directors %}
+          <div class="auto-group-q8yh-QhH">
+            <div class="ellipse-219-jDm">
+              <img class="ellipse-219-jDm" src="{{ sports_director.picture.url }}" alt="{{ sports_director.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-2yZ">
+              <span class="favour-onofheghara-500lv-2yZ-sub-0">
+              {{ sports_director.name }}
+              <br/>
+              {{ sports_director.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-2yZ-sub-1">{{ sports_director.level }}lv</span>
+            </p>
+            <input type="radio" name="sports_director" value="{{ sports_director.id }}" onclick="disableOtherRadiossports_director(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-qcx5-pK5">
+          <p class="public-relations-officer-LYK">Public Relations Officer</p>
+          {% for public_relations_officer in public_relations_officers %}
+          <div class="auto-group-z3ko-oTq">
+            <div class="ellipse-223-8W7">
+              <img class="ellipse-223-8W7" src="{{ public_relations_officer.picture.url }}" alt="{{ public_relations_officer.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-3NB">
+              <span class="favour-onofheghara-500lv-3NB-sub-0">
+              {{ public_relations_officer.name }}
+              <br/>
+              {{ public_relations_officer.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-3NB-sub-1">{{ public_relations_officer.level }}lv</span>
+            </p>
+            <input type="radio" name="public_relations_officer" value="{{ public_relations_officer.id }}" onclick="disableOtherRadiospublic_relations_officer(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-p7ph-zMH">
+          <p class="treasurer-7Ru">Treasurer</p>
+          {% for treasurer in treasurers %}
+          <div class="auto-group-azlb-dh5">
+            <div class="ellipse-227-Z4w">
+              <img class="ellipse-227-Z4w" src="{{ treasurer.picture.url }}" alt="{{ treasurer.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-Rcw">
+              <span class="favour-onofheghara-500lv-Rcw-sub-0">
+              {{ treasurer.name }}
+              <br/>
+              {{ treasurer.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-Rcw-sub-1">{{ treasurer.level }}lv</span>
+            </p>
+            <input type="radio" name="treasurer" value="{{ treasurer.id }}" onclick="disableOtherRadiostreasurer(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-p7ph-zMH">
+          <p class="treasurer-7Ru">PRO 1</p>
+          {% for pro1 in pro1s %}
+          <div class="auto-group-azlb-dh5">
+              <div class="ellipse-227-Z4w">
+                  <img class="ellipse-227-Z4w" src="{{ pro1.picture.url }}" alt="{{ pro1.name }}">
+              </div>
+              <p class="favour-onofheghara-500lv-Rcw">
+                  <span class="favour-onofheghara-500lv-Rcw-sub-0">
+                      {{ pro1.name }}
+                      <br/>
+                      {{ pro1.department }}
+                  </span>
+                  <span class="favour-onofheghara-500lv-Rcw-sub-1">{{ pro1.level }}lv</span>
+              </p>
+              <input type="radio" name="pro1" value="{{ pro1.id }}" onclick="disableOtherRadiospro1(this)">
+          </div>
+          {% endfor %}
+      </div>
+        <div class="auto-group-p7ph-zMH">
+          <p class="treasurer-7Ru">PRO 2</p>
+          {% for pro2 in pro2s %}
+          <div class="auto-group-azlb-dh5">
+            <div class="ellipse-227-Z4w">
+              <img class="ellipse-227-Z4w" src="{{ pro2.picture.url }}" alt="{{ P_R_O2.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-Rcw">
+              <span class="favour-onofheghara-500lv-Rcw-sub-0">
+              {{ pro2.name }}
+              <br/>
+              {{ pro2.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-Rcw-sub-1">{{ P_R_O2.level }}lv</span>
+            </p>
+            <input type="radio" name="pro2" value="{{ pro2.id }}" onclick="disableOtherRadiospro2(this)">
+          </div>
+          {%endfor%}
+        </div>
+        <div class="auto-group-p7ph-zMH">
+          <p class="treasurer-7Ru">Assistant General Secretary</p>
+          {% for assistant_general_secretary in assistant_general_secretaries %}
+          <div class="auto-group-azlb-dh5">
+              <div class="ellipse-227-Z4w">
+                  <img class="ellipse-227-Z4w" src="{{ assistant_general_secretary.picture.url }}" alt="{{ assistant_general_secretary.name }}">
+              </div>
+              <p class="favour-onofheghara-500lv-Rcw">
+                  <span class="favour-onofheghara-500lv-Rcw-sub-0">
+                      {{ assistant_general_secretary.name }}
+                      <br/>
+                      {{ assistant_general_secretary.department }}
+                  </span>
+                  <span class="favour-onofheghara-500lv-Rcw-sub-1">{{ assistant_general_secretary.level }}lv</span>
+              </p>
+              <input type="radio" name="assistant_general_secretary" value="{{ assistant_general_secretary.id }}" onclick="disableOtherRadiosassistant_general_secretary(this)">
+          </div>
+          {% endfor %}
+      </div>
+        <div class="auto-group-p7ph-zMH">
+          <p class="treasurer-7Ru">Assistant Social Director</p>
+          {% for assistant_social_director  in assistant_social_directors %}
+          <div class="auto-group-azlb-dh5">
+            <div class="ellipse-227-Z4w">
+              <img class="ellipse-227-Z4w" src="{{ assistant_social_director.picture.url }}" alt="{{ assistant_social_director.name }}">
+            </div>
+            <p class="favour-onofheghara-500lv-Rcw">
+              <span class="favour-onofheghara-500lv-Rcw-sub-0">
+              {{ assistant_social_director.name }}
+              <br/>
+              {{ assistant_social_director.department }}
+              </span>
+              <span class="favour-onofheghara-500lv-Rcw-sub-1">{{ assistant_social_director.level }}lv</span>
+            </p>
+            <input type="radio" name="assistant_social_director" value="{{ assistant_social_director.id }}" onclick="disableOtherRadiosassistant_social_director(this)"/>
+          </div>
+          {%endfor%}
+        </div>
+
+    </div>
+      {{message}}
+    <input class = "bb btn" type="submit" id="submit_button" onclick="submitVote()"/>
+  </form>
+  <div class="end"><p>&copy;Developed by Dairo D & Abas(DORBES)</p></div>
+<!-- JavaScript code (Place this script in your HTML file) -->
+<script>
+    function disableOtherRadios(clickedRadio) {
+      var radioName = clickedRadio.name;
+
+      // Get all radio buttons with the same name
+      var allRadios = document.getElementsByName(radioName);
+
+      // Loop through each radio button and disable it if it is not the clicked one
+      for (var i = 0; i < allRadios.length; i++) {
+        if (allRadios[i] !== clickedRadio) {
+          allRadios[i].disabled = true;
+        }
+      }
+    }
+
+    function disableOtherRadiosvice(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Vice President if needed
+      // ...
+    }
+
+    function disableOtherRadiosgensec(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to General Secretary if needed
+      // ...
+    }
+
+    function disableOtherRadioswelfare_director(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Welfare Director if needed
+      // ...
+    }
+
+    function disableOtherRadiosfinancial_secretary(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Financial Secretary if needed
+      // ...
+    }
+
+    function disableOtherRadiossocial_director(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Social Director if needed
+      // ...
+    }
+
+    function disableOtherRadiostechnical_director(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Technical Director if needed
+      // ...
+    }
+
+    function disableOtherRadiossports_director(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Sports Director if needed
+      // ...
+    }
+
+    function disableOtherRadiospublic_relations_officer(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Public Relations Officer if needed
+      // ...
+    }
+
+    function disableOtherRadiostreasurer(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Treasurer if needed
+      // ...
+    }
+
+    function disableOtherRadiospro1(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to PRO 1 if needed
+      // ...
+    }
+
+    function disableOtherRadiospro2(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to PRO 2 if needed
+      // ...
+    }
+
+    function disableOtherRadiosassistant_general_secretary(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Assistant General Secretary if needed
+      // ...
+    }
+
+    function disableOtherRadiosassistant_social_director(clickedRadio) {
+      disableOtherRadios(clickedRadio);
+      // Additional logic specific to Assistant Social Director if needed
+      // ...
+    }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Check if the submit button should be disabled
+      var hasVoted = /* Logic to check if the user has voted, you can use a session variable or other means */;
+      
+      if (hasVoted) {
+          // Disable the submit button
+          document.getElementById('submit_button').disabled = true;
+      }
+  });
+  </script>
+  
+
+</div>
+</body>

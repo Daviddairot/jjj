@@ -1,0 +1,49 @@
+
+.logo{
+    width: 20%;
+}
+img{
+    width: 70px;
+}
+.u{
+    width: 90%;
+    position: relative;
+    display: block;
+    top: 5%;
+    left: 48%;
+    transform: translateX(-50%);
+    overflow-x: hidden;
+    margin: 4vh;
+    justify-content: center;
+    align-items:center;
+}
+
+.btn{
+    margin: auto 25%;
+    width:50%;
+    height: 7vh;
+    border-radius: 10px;
+    background-color: black;
+    color: aliceblue;
+    font-size: 18px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+.main{
+    border: solid 1px #000;
+    margin-top: 1vh;
+    height: auto;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-color: blueviolet;
+    font-family: sans-serif;
+    font-size: larger;
+    background-color: antiquewhite;
+    
+}
+.u input[type = 'text'] {
+
+}

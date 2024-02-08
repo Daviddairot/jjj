@@ -1,0 +1,41 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>iPhone 13 & 14 - 2</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A400%2C700"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial%3A400%2C700"/>
+  <link rel="stylesheet" type="text/css" href="{% static 'iphone-13-14-2.css' %}">
+</head>
+<body>
+<div class="iphone-13-14-2-SUj">
+  <img class="image-17-kyH" src="{% static 'image-17.png' %}" alt="Uploaded Image">
+  <p class="nuesa-elections-type-in-your-matric-number-uNK">
+    <span class="nuesa-elections-type-in-your-matric-number-uNK-sub-0">
+    2023/2024 
+    <br/>
+    NUESA ELECTIONS
+    <br/>
+    
+    </span>
+    <span class="nuesa-elections-type-in-your-matric-number-uNK-sub-1">Type in your Matric Number</span>
+  </p>
+  <div class="matricdiv">
+    {% if feedback_message %}
+      <p>{{ feedback_message }}</p>
+    {% endif %}
+    <form method="post" action="{% url 'next' %}">
+      {% csrf_token %}
+      <input class="matric" id="matric_number" type="text" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Matric Number" name="matric_number" required /></br>
+      <input type="submit" class="btn"/>
+    </form>
+  </div>
+  <p class="this-website-is-only-accessible-by-engineering-students-of-elizade-university-Jao">This website is only Accessible by Engineering students of Elizade University</p>
+
+</div>
+</body>

@@ -1,0 +1,227 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Information Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'su.css' %}">
+
+
+</head>
+<body>
+    <header
+    <div class="logo">
+        <img class="image-18-8JF" src="{% static 'image-18-WY3.png' %}" alt="Uploaded Image">
+        <p class="nuesaelizade-chapter-elections-sFq">
+        NUESA(ELIZADE CHAPTER)
+        <br/>
+        ELECTIONS
+        </p>
+    </div>
+    </header>
+    <h3>Candidate Information Form</h3>
+    {% if success_message %}
+        <p>{{ success_message }}</p>
+    {% endif %}
+    </br></br></br></br></br>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class = 'main'>
+        <!-- President -->
+        <div class="u">
+            <h2>President</h2>
+            <input type="text" name="president_name" placeholder="name" required><br>
+            <input type="file" name="president_picture" placeholder="Picture" required><br>
+            <input type="text" name="president_department" placeholder="Department" required><br>
+            <input type="text" name="president_level" placeholder="Level" required><br>
+            <input type="number" name="president_votes" placeholder="Votes" value="0" required><br>
+        </div>
+
+        <!-- Vice President -->
+        <div class="u">
+        <h2>Vice President</h2>
+        <label for="vice_president_name">Name:</label>
+        <input type="text" name="vice_president_name" required><br>
+        <label for="vice_president_picture">Picture:</label>
+        <input type="file" name="vice_president_picture" required><br>
+        <label for="vice_president_department">Department:</label>
+        <input type="text" name="vice_president_department" required><br>
+        <label for="vice_president_level">Level:</label>
+        <input type="text" name="vice_president_level" required><br>
+        <label for="vice_president_votes">Votes:</label>
+        <input type="number" name="vice_president_votes" value="0" required><br>
+        </div>
+
+        <!-- General Secretary -->
+        <div class="u">
+        <h2>General Secretary</h2>
+        <label for="general_secretary_name">Name:</label>
+        <input type="text" name="general_secretary_name" required><br>
+        <label for="general_secretary_picture">Picture:</label>
+        <input type="file" name="general_secretary_picture" required><br>
+        <label for="general_secretary_department">Department:</label>
+        <input type="text" name="general_secretary_department" required><br>
+        <label for="general_secretary_level">Level:</label>
+        <input type="text" name="general_secretary_level" required><br>
+        <label for="general_secretary_votes">Votes:</label>
+        <input type="number" name="general_secretary_votes" value="0" required><br>
+        </div>
+
+        <!-- Financial Secretary -->
+        <div class="u">
+        <h2>Financial Secretary</h2>
+        <label for="financial_secretary_name">Name:</label>
+        <input type="text" name="financial_secretary_name" required><br>
+        <label for="financial_secretary_picture">Picture:</label>
+        <input type="file" name="financial_secretary_picture" required><br>
+        <label for="financial_secretary_department">Department:</label>
+        <input type="text" name="financial_secretary_department" required><br>
+        <label for="financial_secretary_level">Level:</label>
+        <input type="text" name="financial_secretary_level" required><br>
+        <label for="financial_secretary_votes">Votes:</label>
+        <input type="number" name="financial_secretary_votes" value="0" required><br>
+        </div>
+        
+        <!-- Social Director -->
+        <div class="u">
+        <h2>Social Director</h2>
+        <label for="social_director_name">Name:</label>
+        <input type="text" name="social_director_name" required><br>
+        <label for="social_director_picture">Picture:</label>
+        <input type="file" name="social_director_picture" required><br>
+        <label for="social_director_department">Department:</label>
+        <input type="text" name="social_director_department" required><br>
+        <label for="social_director_level">Level:</label>
+        <input type="text" name="social_director_level" required><br>
+        <label for="social_director_votes">Votes:</label>
+        <input type="number" name="social_director_votes" value="0" required><br>
+        </div>
+
+        <!-- Technical Director -->
+        <div class="u">
+        <h2>Technical Director</h2>
+        <label for="technical_director_name">Name:</label>
+        <input type="text" name="technical_director_name" required><br>
+        <label for="technical_director_picture">Picture:</label>
+        <input type="file" name="technical_director_picture" required><br>
+        <label for="technical_director_department">Department:</label>
+        <input type="text" name="technical_director_department" required><br>
+        <label for="technical_director_level">Level:</label>
+        <input type="text" name="technical_director_level" required><br>
+        <label for="technical_director_votes">Votes:</label>
+        <input type="number" name="technical_director_votes" value="0" required><br>
+        </div>
+        
+        <!-- Sports Director -->
+        <div class="u">
+        <h2>Sports Director</h2>
+        <label for="sports_director_name">Name:</label>
+        <input type="text" name="sports_director_name" required><br>
+        <label for="sports_director_picture">Picture:</label>
+        <input type="file" name="sports_director_picture" required><br>
+        <label for="sports_director_department">Department:</label>
+        <input type="text" name="sports_director_department" required><br>
+        <label for="sports_director_level">Level:</label>
+        <input type="text" name="sports_director_level" required><br>
+        <label for="sports_director_votes">Votes:</label>
+        <input type="number" name="sports_director_votes" value="0" required><br>
+        </div>
+        
+        
+        <!-- Treasurer -->
+        <div class="u">
+        <h2>Treasurer</h2>
+        <label for="treasurer_name">Name:</label>
+        <input type="text" name="treasurer_name" required><br>
+        <label for="treasurer_picture">Picture:</label>
+        <input type="file" name="treasurer_picture" required><br>
+        <label for="treasurer_department">Department:</label>
+        <input type="text" name="treasurer_department" required><br>
+        <label for="treasurer_level">Level:</label>
+        <input type="text" name="treasurer_level" required><br>
+        <label for="treasurer_votes">Votes:</label>
+        <input type="number" name="treasurer_votes" value="0" required><br>
+        </div>
+        
+        <!-- Welfare Director -->
+        <div class="u">
+        <h2>Welfare Director</h2>
+        <label for="welfare_director_name">Name:</label>
+        <input type="text" name="welfare_director_name" required><br>
+        <label for="welfare_director_picture">Picture:</label>
+        <input type="file" name="welfare_director_picture" required><br>
+        <label for="welfare_director_department">Department:</label>
+        <input type="text" name="welfare_director_department" required><br>
+        <label for="welfare_director_level">Level:</label>
+        <input type="text" name="welfare_director_level" required><br>
+        <label for="welfare_director_votes">Votes:</label>
+        <input type="number" name="welfare_director_votes" value="0" required><br>
+        </div>
+        
+        <!-- P_R_O1 -->
+        <div class="u">
+        <h4>Public Relations Officer 1</h4>
+        <label for="pro1_name">Name:</label>
+        <input type="text" name="pro1_name" required><br>
+        <label for="pro1_picture">Picture:</label>
+        <input type="file" name="pro1_picture" required><br>
+        <label for="pro1_department">Department:</label>
+        <input type="text" name="pro1_department" required><br>
+        <label for="pro1_level">Level:</label>
+        <input type="text" name="pro1_level" required><br>
+        <label for="pro1_votes">Votes:</label>
+        <input type="number" name="pro1_votes" value="0" required><br>
+        </div>
+        
+        <!-- P_R_O2 -->
+        <div class="u">
+        <h4>Public Relations Officer 2</h4>
+        <label for="pro2_name">Name:</label>
+        <input type="text" name="pro2_name" required><br>
+        <label for="pro2_picture">Picture:</label>
+        <input type="file" name="pro2_picture" required><br>
+        <label for="pro2_department">Department:</label>
+        <input type="text" name="pro2_department" required><br>
+        <label for="pro2_level">Level:</label>
+        <input type="text" name="pro2_level" required><br>
+        <label for="pro2_votes">Votes:</label>
+        <input type="number" name="pro2_votes" value="0" required><br>
+        </div>
+        
+        <!-- Assistant General Secretary -->
+        <div class="u">
+        <h4>Assistant General Secretary</h4>
+        <label for="assistant_general_secretary_name">Name:</label>
+        <input type="text" name="assistant_general_secretary_name" required><br>
+        <label for="assistant_general_secretary_picture">Picture:</label>
+        <input type="file" name="assistant_general_secretary_picture" required><br>
+        <label for="assistant_general_secretary_department">Department:</label>
+        <input type="text" name="assistant_general_secretary_department" required><br>
+        <label for="assistant_general_secretary_level">Level:</label>
+        <input type="text" name="assistant_general_secretary_level" required><br>
+        <label for="assistant_general_secretary_votes">Votes:</label>
+        <input type="number" name="assistant_general_secretary_votes" value="0" required><br>
+        </div>
+
+        <!-- Assistant Social Director -->
+        <div class="u">
+        <h4>Assistant Social Director</h4>
+        <label for="assistant_social_director_name">Name:</label>
+        <input type="text" name="assistant_social_director_name" required><br>
+        <label for="assistant_social_director_picture">Picture:</label>
+        <input type="file" name="assistant_social_director_picture" required><br>
+        <label for="assistant_social_director_department">Department:</label>
+        <input type="text" name="assistant_social_director_department" required><br>
+        <label for="assistant_social_director_level">Level:</label>
+        <input type="text" name="assistant_social_director_level" required><br>
+        <label for="assistant_social_director_votes">Votes:</label>
+        <input type="number" name="assistant_social_director_votes" value="0" required><br>
+        </div>
+
+        </div>
+        <button class="btn" type="submit">Submit</button>
+    </form>
+    <p><a href="{% url 'candidate_list' %}">delete candidate</a></p>
+</body>
+</html>
