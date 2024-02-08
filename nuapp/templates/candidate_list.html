@@ -1,0 +1,149 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate List</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'iphone-13-14-4.css' %}">
+</head>
+<body>
+    <header>
+        <img class="logo" src="{% static 'image-18-WY3.png' %}" alt="Uploaded Image">
+            <h1>Candidate List</h1>
+
+    </header>
+    <div class="maind">
+    <div class = "cen">
+    <h2>Presidents</h2>
+    <ul>
+        {% for president in presidents %}
+            <li>{{ president.name }} - {{ president.department }} - {{ president.level }}
+                <a href="{% url 'delete_candidate' 'president' president.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Vice Presidents</h2>
+    <ul>
+        {% for vice_president in vice_presidents %}
+            <li>{{ vice_president.name }} - {{ vice_president.department }} - {{ vice_president.level }}
+                <a href="{% url 'delete_candidate' 'vice_president' vice_president.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>General Secretaries</h2>
+    <ul>
+        {% for general_secretary in general_secretaries %}
+            <li>{{ general_secretary.name }} - {{ general_secretary.department }} - {{ general_secretary.level }}
+                <a href="{% url 'delete_candidate' 'general_secretary' general_secretary.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Financial Secretaries</h2>
+    <ul>
+        {% for financial_secretary in financial_secretaries %}
+            <li>{{ financial_secretary.name }} - {{ financial_secretary.department }} - {{ financial_secretary.level }}
+                <a href="{% url 'delete_candidate' 'financial_secretary' financial_secretary.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Social Directors</h2>
+    <ul>
+        {% for social_director in social_directors %}
+            <li>{{ social_director.name }} - {{ social_director.department }} - {{ social_director.level }}
+                <a href="{% url 'delete_candidate' 'social_director' social_director.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Technical Directors</h2>
+    <ul>
+        {% for technical_director in technical_directors %}
+            <li>{{ technical_director.name }} - {{ technical_director.department }} - {{ technical_director.level }}
+                <a href="{% url 'delete_candidate' 'technical_director' technical_director.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Sports Directors</h2>
+    <ul>
+        {% for sports_director in sports_directors %}
+            <li>{{ sports_director.name }} - {{ sports_director.department }} - {{ sports_director.level }}
+                <a href="{% url 'delete_candidate' 'sports_director' sports_director.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Treasurers</h2>
+    <ul>
+        {% for treasurer in treasurers %}
+            <li>{{ treasurer.name }} - {{ treasurer.department }} - {{ treasurer.level }}
+                <a href="{% url 'delete_candidate' 'treasurer' treasurer.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Welfare Directors</h2>
+    <ul>
+        {% for welfare_director in welfare_directors %}
+            <li>{{ welfare_director.name }} - {{ welfare_director.department }} - {{ welfare_director.level }}
+                <a href="{% url 'delete_candidate' 'welfare_director' welfare_director.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Assistant General Secretaries</h2>
+    <ul>
+        {% for assistant_general_secretary in assistant_general_secretaries %}
+            <li>{{ assistant_general_secretary.name }} - {{ assistant_general_secretary.department }} - {{ assistant_general_secretary.level }}
+                <a href="{% url 'delete_candidate' 'assistant_general_secretary' assistant_general_secretary.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>Assistant Social Directors</h2>
+    <ul>
+        {% for assistant_social_director in assistant_social_directors %}
+            <li>{{ assistant_social_director.name }} - {{ assistant_social_director.department }} - {{ assistant_social_director.level }}
+                <a href="{% url 'delete_candidate' 'assistant_social_director' assistant_social_director.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>P.R.O 1s</h2>
+    <ul>
+        {% for pro1 in pro1s %}
+            <li>{{ pro1.name }} - {{ pro1.department }} - {{ pro1.level }}
+                <a href="{% url 'delete_candidate' 'pro1' pro1.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class = "cen">
+    <h2>P.R.O 2s</h2>
+    <ul>
+        {% for pro2 in pro2s %}
+            <li>{{ pro2.name }} - {{ pro2.department }} - {{ pro2.level }}
+                <a href="{% url 'delete_candidate' 'pro2' pro2.id %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+    </div>
+</body>
+</html>
