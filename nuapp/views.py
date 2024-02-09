@@ -75,7 +75,7 @@ def login_view(request):
                 return redirect('close')  # Redirect to the end page if the user has already voted
 
             # Redirect to the voting page
-            return redirect('vote')
+            return redirect('close')
 
         else:
             feedback_message = "You are not authorized to log in with this matric number."
