@@ -210,7 +210,7 @@ def vote_submit(request):
     
         
     # If the request method is not POST, handle it accordingly (redirect or render a different page)
-    return redirect('end')  
+    return redirect('close')  
 
 def end(request):
         president_candidates = President.objects.values('name', 'votes')
