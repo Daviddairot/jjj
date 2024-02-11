@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results</title>
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        div{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Election Results</h1>
+
+    <!-- President Chart -->
+    <h2>President</h2>
+    <div id="president_chart_container">pending...
+        <canvas id="president_chart"></canvas>
+    </div>
+
+    <!-- Vice President Chart -->
+    <h2>Vice President</h2>
+    <div id="vice_president_chart_container">
+        <canvas id="vice_president_chart"></canvas>
+    </div>
+
+    <!-- General Secretary Chart -->
+    <h2>General Secretary</h2>
+    <div id="general_secretary_chart_container">
+        <canvas id="general_secretary_chart"></canvas>
+    </div>
+
+    <!-- Financial Secretary Chart -->
+    <h2>Financial Secretary</h2>
+    <div id="financial_secretary_chart_container">
+        <canvas id="financial_secretary_chart"></canvas>
+    </div>
+
+    <!-- Social Director Chart -->
+    <h2>Social Director</h2>
+    <div id="social_director_chart_container">
+        <canvas id="social_director_chart"></canvas>
+    </div>
+
+    <!-- Public Relations Officer Chart -->
+    <h2>Public Relations Officer</h2>
+    <div id="public_relations_officer_chart_container">
+        <canvas id="public_relations_officer_chart"></canvas>
+    </div>
+
+    <!-- Treasurer Chart -->
+    <h2>Treasurer Director</h2>
+    <div id="treasurer_chart_container">
+        <canvas id="treasurer_chart"></canvas>
+    </div>
+
+    <!-- Welfare Director Chart -->
+    <h2>Welfare Director</h2>
+    <div id="welfare_director_chart_container">
+        <canvas id="welfare_director_chart"></canvas>
+    </div>
+
+    <!-- Assistant General Secretary Chart -->
+    <h2>Assistant General Secretary</h2>
+    <div id="assistant_general_secretary_container">
+        <canvas id="assistant_general_secretary_chart"></canvas>
+    </div>
+
+    <!-- Assistant Social Director Chart -->
+    <h2>Assistant Social Director</h2>
+    <div id="assistant_social_director_container">
+        <canvas id="assistant_social_director_chart"></canvas>
+    </div>
+
+    <!-- PRO1 Chart -->
+    <h2>PRO1</h2>
+    <div id="pro1_container">
+        <canvas id="pro1_chart"></canvas>
+    </div>
+
+    <!-- PRO2 Chart -->
+    <h2>PRO2</h2>
+    <div id="pro2_container">
+        <canvas id="pro2_chart"></canvas>
+    </div>
+
+    <script>
+        // Get data for president chart
+        //var president_labels = {{ labels|safe }};
+        //var president_votes = {{ votes|safe }};
+
+        // Get data for vice president chart
+        var vice_president_labels = {{ vlabels|safe }};
+        var vice_president_votes = {{ vvotes|safe }};
+
+        // Get data for general secretary chart
+        var gs_labels = {{ gs_labels|safe }};
+        var gs_votes = {{ gs_votes|safe }};
+
+        // Get data for financial secretary chart
+        var fs_labels = {{ fs_labels|safe }};
+        var fs_votes = {{ fs_votes|safe }};
+
+        // Get data for social director chart
+        var sd_labels = {{ sd_labels|safe }};
+        var sd_votes = {{ sd_votes|safe }};
+
+        // Get data for public relations officer chart
+        var pro_labels = {{ pro_labels|safe }};
+        var pro_votes = {{ pro_votes|safe }};
+
+        // Get data for treasurer chart
+        var t_labels = {{ t_labels|safe }};
+        var t_votes = {{ t_votes|safe }};
+
+        // Get data for welfare director chart
+        var wd_labels = {{ wd_labels|safe }};
+        var wd_votes = {{ wd_votes|safe }};
+
+        // Get data for assistant general secretary chart
+        var as_labels = {{ as_labels|safe }};
+        var as_votes = {{ as_votes|safe }};
+
+        // Get data for assistant social director chart
+        var assd_labels = {{ assd_labels|safe }};
+        var assd_votes = {{ assd_votes|safe }};
+
+        // Get data for PRO1 chart
+        var p1_labels = {{ p1_labels|safe }};
+        var p1_votes = {{ p1_votes|safe }};
+
+        // Get data for PRO2 chart
+        var p2_labels = {{ p2_labels|safe }};
+        var p2_votes = {{ p2_votes|safe }};
+
+        // Render president chart
+
+        //var president_ctx = document.getElementById('president_chart').getContext('2d');
+        //var president_chart = new Chart(president_ctx, {
+        //    type: 'pie',
+        //    data: {
+        //        labels: president_labels,
+        //        datasets: [{
+        //            data: president_votes,
+        //            backgroundColor: [
+        //                'rgba(255, 99, 132, 0.6)',
+        //                'rgba(54, 162, 235, 0.6)',
+        //               'rgba(255, 206, 86, 0.6)',
+        //                'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+        //            ]
+        //        }]
+        //    }
+        //})
+
+        // Render vice president chart
+        var vice_president_ctx = document.getElementById('vice_president_chart').getContext('2d');
+        var vice_president_chart = new Chart(vice_president_ctx, {
+            type: 'pie',
+            data: {
+                labels: vice_president_labels,
+                datasets: [{
+                    data: vice_president_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                        'rgba(153, 102, 255, 0.7)',
+                        'rgba(255, 159, 64, 0.7)',
+                        'rgba(255, 99, 132, 0.7)',
+                        'rgba(54, 162, 235, 0.7)',
+                        'rgba(255, 206, 86, 0.7)',
+                        'rgba(75, 192, 192, 0.7)',
+                    ]
+                }]
+            }
+        });
+
+        // Render general secretary chart
+        var gs_ctx = document.getElementById('general_secretary_chart').getContext('2d');
+        var gs_chart = new Chart(gs_ctx, {
+            type: 'pie',
+            data: {
+                labels: gs_labels,
+                datasets: [{
+                    data: gs_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render financial secretary chart
+        var fs_ctx = document.getElementById('financial_secretary_chart').getContext('2d');
+        var fs_chart = new Chart(fs_ctx, {
+            type: 'pie',
+            data: {
+                labels: fs_labels,
+                datasets: [{
+                    data: fs_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render social director chart
+        var sd_ctx = document.getElementById('social_director_chart').getContext('2d');
+        var sd_chart = new Chart(sd_ctx, {
+            type: 'pie',
+            data: {
+                labels: sd_labels,
+                datasets: [{
+                    data: sd_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render public relations officer chart
+        var pro_ctx = document.getElementById('public_relations_officer_chart').getContext('2d');
+        var pro_chart = new Chart(pro_ctx, {
+            type: 'pie',
+            data: {
+                labels: pro_labels,
+                datasets: [{
+                    data: pro_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render treasurer chart
+        var t_ctx = document.getElementById('treasurer_chart').getContext('2d');
+        var t_chart = new Chart(t_ctx, {
+            type: 'pie',
+            data: {
+                labels: t_labels,
+                datasets: [{
+                    data: t_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render welfare director chart
+        var wd_ctx = document.getElementById('welfare_director_chart').getContext('2d');
+        var wd_chart = new Chart(wd_ctx, {
+            type: 'pie',
+            data: {
+                labels: wd_labels,
+                datasets: [{
+                    data: wd_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render assistant general secretary chart
+        var as_ctx = document.getElementById('assistant_general_secretary_chart').getContext('2d');
+        var as_chart = new Chart(as_ctx, {
+            type: 'pie',
+            data: {
+                labels: as_labels,
+                datasets: [{
+                    data: as_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render assistant social director chart
+        var assd_ctx = document.getElementById('assistant_social_director_chart').getContext('2d');
+        var assd_chart = new Chart(assd_ctx, {
+            type: 'pie',
+            data: {
+                labels: assd_labels,
+                datasets: [{
+                    data: assd_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render PRO1 chart
+        var p1_ctx = document.getElementById('pro1_chart').getContext('2d');
+        var p1_chart = new Chart(p1_ctx, {
+            type: 'pie',
+            data: {
+                labels: p1_labels,
+                datasets: [{
+                    data: p1_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+        // Render PRO2 chart
+        var p2_ctx = document.getElementById('pro2_chart').getContext('2d');
+        var p2_chart = new Chart(p2_ctx, {
+            type: 'pie',
+            data: {
+                labels: p2_labels,
+                datasets: [{
+                    data: p2_votes,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                        // Add more colors if needed
+                    ]
+                }]
+            }
+        });
+
+    </script>
+</body>
+</html>
