@@ -16,6 +16,98 @@ def close(request):
 def next_page(request):
     return render(request, 'next_page.html')
 
+
+def election_results(request):
+    president_votes = President.objects.values_list('name', 'votes')
+    vice_president_votes = Vice_President.objects.values_list('name', 'votes')
+    general_secretary_votes = General_Secretary.objects.values_list('name', 'votes')
+    financial_secretary_votes = Financial_Secretary.objects.values_list('name', 'votes')
+    social_director_votes = Social_Director.objects.values_list('name', 'votes')
+    technical_director_votes = Technical_Director.objects.values_list('name', 'votes')
+    sports_director_votes = Sports_Director.objects.values_list('name', 'votes')
+    public_relations_officer_votes = Public_Relations_Officer.objects.values_list('name', 'votes')
+    treasurer_votes = Treasurer.objects.values_list('name', 'votes')
+    welfare_director_votes = Welfare_Director.objects.values_list('name', 'votes')
+    assistant_general_secretary_votes = assistant_general_secretary.objects.values_list('name', 'votes')
+    assistant_social_director_votes = assistant_social_director.objects.values_list('name', 'votes')
+    pro1_votes = P_R_O1.objects.values_list('name', 'votes')
+    pro2_votes = P_R_O2.objects.values_list('name', 'votes')
+
+    # Prepare data for the pie charts
+    labels = [candidate[0] for candidate in president_votes]
+    votes = [candidate[1] for candidate in president_votes]
+
+    vlabels = [candidate[0] for candidate in vice_president_votes]
+    vvotes = [candidate[1] for candidate in vice_president_votes]
+
+    gs_labels = [candidate[0] for candidate in general_secretary_votes]
+    gs_votes = [candidate[1] for candidate in general_secretary_votes]
+
+    fs_labels = [candidate[0] for candidate in financial_secretary_votes]
+    fs_votes = [candidate[1] for candidate in financial_secretary_votes]
+
+    sd_labels = [candidate[0] for candidate in social_director_votes]
+    sd_votes = [candidate[1] for candidate in social_director_votes]
+
+    td_labels = [candidate[0] for candidate in technical_director_votes]
+    td_votes = [candidate[1] for candidate in technical_director_votes]
+
+    sp_labels = [candidate[0] for candidate in sports_director_votes]
+    sp_votes = [candidate[1] for candidate in sports_director_votes]
+
+    pro_labels = [candidate[0] for candidate in public_relations_officer_votes]
+    pro_votes = [candidate[1] for candidate in public_relations_officer_votes]
+
+    t_labels = [candidate[0] for candidate in treasurer_votes]
+    t_votes = [candidate[1] for candidate in treasurer_votes]
+
+    wd_labels = [candidate[0] for candidate in welfare_director_votes]
+    wd_votes = [candidate[1] for candidate in welfare_director_votes]
+
+    as_labels = [candidate[0] for candidate in assistant_general_secretary_votes]
+    as_votes = [candidate[1] for candidate in assistant_general_secretary_votes]
+
+    assd_labels = [candidate[0] for candidate in assistant_social_director_votes]
+    assd_votes = [candidate[1] for candidate in assistant_social_director_votes]
+
+    p1_labels = [candidate[0] for candidate in pro1_votes]
+    p1_votes = [candidate[1] for candidate in pro1_votes]
+
+    p2_labels = [candidate[0] for candidate in pro2_votes]
+    p2_votes = [candidate[1] for candidate in pro2_votes]
+
+    context = {
+        'labels': labels,
+        'votes': votes,
+        'vlabels': vlabels,
+        'vvotes': vvotes,
+        'gs_labels': gs_labels,
+        'gs_votes': gs_votes,
+        'fs_labels': fs_labels,
+        'fs_votes': fs_votes,
+        'sd_labels': sd_labels,
+        'sd_votes': sd_votes,
+        'td_labels': td_labels,
+        'td_votes': td_votes,
+        'sp_labels': sp_labels,
+        'sp_votes': sp_votes,
+        'pro_labels': pro_labels,
+        'pro_votes': pro_votes,
+        't_labels': t_labels,
+        't_votes': t_votes,
+        'wd_labels': wd_labels,
+        'wd_votes': wd_votes,
+        'as_labels': as_labels,
+        'as_votes': as_votes,
+        'assd_labels': assd_labels,
+        'assd_votes': assd_votes,
+        'p1_labels': p1_labels,
+        'p1_votes': p1_votes,
+        'p2_labels': p2_labels,
+        'p2_votes': p2_votes,
+    }
+    return render(request, 'election_results.html', context)
+
 def vote(request):
     presidents = President.objects.all()
     vice_presidents = Vice_President.objects.all()
