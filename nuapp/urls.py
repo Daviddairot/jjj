@@ -16,7 +16,8 @@ urlpatterns = [
     path('candidate_list/', views.candidate_list, name = 'candidate_list' ),
     path('delete_candidate/<str:position>/<int:candidate_id>/', views.delete_candidate, name='delete_candidate'),
     path('custom_signup/', views.custom_signup, name = 'custom_signup'),
-    path('custom_login/', views.custom_login, name = 'custom_login')
+    path('custom_login/', views.custom_login, name = 'custom_login'),
+    path('election_results/', views.election_results, name = 'election_results'),
 
 ]
 
