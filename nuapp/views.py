@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import President, UserProfile, Vice_President, General_Secretary, Financial_Secretary, Social_Director, Technical_Director, Sports_Director, Public_Relations_Officer, Treasurer, Welfare_Director,assistant_general_secretary, assistant_social_director, P_R_O1, P_R_O2
+from .models import President, UserProfile, Vice_President, General_Secretary, Financial_Secretary, Social_Director, Technical_Director, Sports_Director, Public_Relations_Officer, Treasurer, Welfare_Director,assistant_general_secretary, assistant_social_director, P_R_O1, P_R_O2, UserVote
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import UserCreationForm
