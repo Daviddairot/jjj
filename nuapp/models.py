@@ -177,3 +177,4 @@ class UserVote(models.Model):
 
     def __str__(self):
         return f"{self.user_profile.matric_number} voted for candidates"
+
