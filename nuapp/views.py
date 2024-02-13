@@ -196,6 +196,7 @@ def login_view(request):
 
 
 
+
 def vote_submit(request):
     if request.method == 'POST':
         # Get the selected candidates' IDs from the submitted form
