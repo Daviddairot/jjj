@@ -262,6 +262,24 @@ def vote_submit(request):
         assistantsocialdirector.save()
 
         user_profile = UserProfile.objects.get(matric_number=request.session.get('matric_number'))
+        UserVote.objects.create(
+            user_profile=user_profile,
+            email=user_profile.email,  # Assign the user's email
+            president_voted=president,
+            vice_president_voted=vice_president,
+            general_secretary_voted=general_secretary,
+            financial_secretary_voted=financial_secretary,
+            social_director_voted=social_director,
+            technical_director_voted=technical_director,
+            sports_director_voted=sports_director,
+            public_relations_officer_voted=public_relations_officer,
+            treasurer_voted=treasurer,
+            welfare_director_voted=welfare_director,
+            assistant_general_secretary_voted=assistantgeneralsecretary,
+            assistant_social_director_voted=assistantsocialdirector,
+            pro1_voted=PRO1,
+            pro2_voted=PRO2
+        )
         user_profile.has_voted = True
         user_profile.save()
         
