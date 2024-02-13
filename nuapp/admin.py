@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import President, UserProfile, Vice_President, General_Secretary, Financial_Secretary, Social_Director, Technical_Director, Sports_Director, Public_Relations_Officer, Treasurer, Welfare_Director, P_R_O1, P_R_O2, assistant_general_secretary, assistant_social_director, from .models import President, UserProfile, Vice_President, General_Secretary, Financial_Secretary, Social_Director, Technical_Director, Sports_Director, Public_Relations_Officer, Treasurer, Welfare_Director, P_R_O1, P_R_O2, assistant_general_secretary, assistant_social_director, UserVote
+from .models import President, UserProfile, Vice_President, General_Secretary, Financial_Secretary, Social_Director, Technical_Director, Sports_Director, Public_Relations_Officer, Treasurer, Welfare_Director, P_R_O1, P_R_O2, assistant_general_secretary, assistant_social_director, UserVote
 
 
 
