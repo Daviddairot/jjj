@@ -145,35 +145,55 @@ def vote(request):
 
 def login_view(request):
     if request.method == 'POST':
-        matric_number = request.POST.get('matric_number', '').strip()
+        matric_number = request.POST.get('matric_number', '').strip().lower()  # Convert to lowercase
 
         # Debugging: Print the matric number
         print("Matric Number:", matric_number)
 
-        # Custom condition for allowed values
-        allowed_values = ['301', '302','303', '304','305','306', '307']
-        if any(value in matric_number for value in allowed_values):
-            # Set the matric_number in the session
-            request.session['matric_number'] = matric_number
-
-            # Check if the user has a UserProfile instance
-            try:
-                user_profile = UserProfile.objects.get(matric_number=matric_number)
-            except UserProfile.DoesNotExist:
-                user_profile = UserProfile.objects.create(matric_number=matric_number, has_voted=False)
-
-            # Check if the user has already voted
-            if user_profile.has_voted:
-                return redirect('close')  # Redirect to the end page if the user has already voted
-
-            # Redirect to the voting page
-            return redirect('close')
-
-        else:
-            feedback_message = "You are not authorized to log in with this matric number."
+        # Validate matric number format
+        if not re.match(r'^[a-z]{2}\d{6}-\d{4}$', matric_number):
+            feedback_message = "Invalid matric number format."
             return render(request, 'next_page.html', {'feedback_message': feedback_message})
 
+        # Extract year, department, and last 4 digits from matric number
+        year = int(matric_number[2:5])
+        department = int(matric_number[5:8])
+        last_four_digits = int(matric_number[-4:])
+
+        # Check if year and department are valid
+        if year not in [190, 200, 210, 220, 230] or department not in [301, 302, 303, 304, 305, 306, 307]:
+            feedback_message = "Invalid year or department in matric number."
+            return render(request, 'next_page.html', {'feedback_message': feedback_message})
+
+        # Check if the last 4 digits are in the range [1993, 9999]
+        if last_four_digits < 1993 or last_four_digits > 9999:
+            feedback_message = "Invalid last 4 digits in matric number."
+            return render(request, 'next_page.html', {'feedback_message': feedback_message})
+
+        email = request.POST.get('email', '').strip().lower()  # Convert email to lowercase
+
+        # Validate email format
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@elizadeuniversity\.edu\.ng$', email):
+            feedback_message = "Invalid email format. Please use an @elizadeuniversity.edu.ng email."
+            return render(request, 'next_page.html', {'feedback_message': feedback_message})
+
+        # Set the matric_number and email in the session
+        request.session['matric_number'] = matric_number
+        request.session['email'] = email
+
+        # Save the matric_number and email to the UserProfile model
+        user_profile, created = UserProfile.objects.get_or_create(matric_number=matric_number, defaults={'email': email, 'has_voted': False})
+
+        # Check if the user has already voted
+        if user_profile.has_voted:
+            return redirect('close')  # Redirect to the end page if the user has already voted
+
+        # Redirect to the voting page
+        return redirect('vote')
+
     return render(request, 'next_page.html')
+
+
 
 
 def vote_submit(request):
