@@ -31,7 +31,7 @@
     {% endif %}
     <form method="post" action="{% url 'next' %}">
       {% csrf_token %}
-      <input type="email" class = "email" id="email" name="email" required>
+      <input type="email" class = "email" id="email" name="email" placeholder = '&nbsp;&nbsp;&nbsp;&nbsp;Email' required></br>
       <input class="matric" id="matric_number" type="text" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Matric Number" name="matric_number" required /></br>
       <input type="submit" class="btn"/>
     </form>
